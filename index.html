@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>댓글 창</title>
 </head>
-
 <body>
   <div id="comment-form">
     <h2>댓글 남기기</h2>
@@ -50,33 +48,16 @@
     function updateCommentList() {
       const commentList = document.getElementById("comment-list").querySelector("ul");
 
-      // 댓글 목록 초기화하기
+      // 이전에 추가된 댓글 유지하기
       commentList.innerHTML = "";
 
-      // 댓글 목록 추가하기
+      // 새로운 댓글 추가하기
       comments.forEach(comment => {
         const li = document.createElement("li");
         li.innerText = `${comment.name}: ${comment.comment}`;
         commentList.appendChild(li);
       });
     }
-    function submitComment() {
-      // 입력된 댓글 내용과 작성자 이름 가져오기
-      const name = document.getElementById("name").value;
-      const comment = document.getElementById("comment").value;
-
-      // 댓글 목록에 추가하기
-      comments.push({ name, comment });
-
-      // 입력 폼 초기화하기
-      document.getElementById("name").value = "";
-      document.getElementById("comment").value = "";
-
-      // 댓글 목록 업데이트하기
-      updateCommentList();
-    }
-
   </script>
 </body>
-
 </html>
